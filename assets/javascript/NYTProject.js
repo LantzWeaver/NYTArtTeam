@@ -4,10 +4,12 @@ var searchSpecifics = [];
 
 $("#searchGo").on("click", function(event) {
 
+event.preventDefault();
+
 var search, filterSearch, dateStart, dateEnd, sortBy, 
 filterList, highlighter, pageResults, articleStats, filterStats;
 
-        event.preventDefault();
+        
 
         // store user input
         search = $("#searchTerms").val().trim();
@@ -24,17 +26,17 @@ filterList, highlighter, pageResults, articleStats, filterStats;
 var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
 url += '?' + $.param({
 
-  'api-key': "de8d86840824415490757a65af5f2436";
-  'q': search;
-  'fq': filterSearch;
-  'begin_date': dateStart;
-  'end_date': dateEnd;
-  'sort': sortBy;
-  'fl': filterList;
-  'hl': highlighter;
-  'page': pageResults;
-  'facet_field': articleStats;
-  'facet_filter': filterStats;
+  'api-key': "de8d86840824415490757a65af5f2436"
+  'q': search
+  'fq': filterSearch
+  'begin_date': dateStart
+  'end_date': dateEnd
+  'sort': sortBy
+  'fl': filterList
+  'hl': highlighter
+  'page': pageResults
+  'facet_field': articleStats
+  'facet_filter': filterStats
 
 });
 
