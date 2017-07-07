@@ -13,6 +13,7 @@ $("#searchGo").on("click", function(event) {
         search = $("#searchTerms").val().trim();
         dateStart = $("#dateStart").val().trim();
         dateEnd = $("#dateEnd").val().trim();
+        pageResults = $("#pageResults").val().trim();
         //var movie = $("#highlighter").val().trim();
         //var movie = $("#articleStats").val().trim();
        
@@ -46,8 +47,12 @@ url += '?' + $.param({
     	var searchResult = response;
     	console.log(searchResult)
 
-    	
+for (i=0; i < searchResult.length; i++){
 
+  var newsDiv = $('<div>');
+  $('newsDiv').append(searchResult[i]);
+
+}
     });
 
 };
