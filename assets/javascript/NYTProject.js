@@ -1,11 +1,11 @@
 $(document).ready(function () {
 
-var search, filterSearch, dateStart, dateEnd, sortBy, 
-filterList, highlighter, pageResults, articleStats, filterStats;
-
 var searchSpecifics = [];
 
 $("#searchGo").on("click", function(event) {
+
+var search, filterSearch, dateStart, dateEnd, sortBy, 
+filterList, highlighter, pageResults, articleStats, filterStats;
 
         event.preventDefault();
 
@@ -19,7 +19,7 @@ $("#searchGo").on("click", function(event) {
        
        //store search stuff to see if it works
         searchSpecifics.push(search, dateStart, dateEnd);
-      });
+
 
 var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json";
 url += '?' + $.param({
@@ -38,25 +38,29 @@ url += '?' + $.param({
 
 });
 
-	function jax(){
+
+function jax(){
     $.ajax({
       url: queryURL,
       method: 'GET'
     }).done(function(response) {
 
-    	var searchResult = response;
-    	console.log(searchResult)
+      var searchResult = response;
+      console.log(searchResult)
 
-for (i=0; i < searchResult.length; i++){
+    for (i=0; i < searchResult.length; i++){
 
-  var newsDiv = $('<div>');
-  $('newsDiv').append(searchResult[i]);
+      var newsDiv = $('<div>');
+      $('newsDiv').append(searchResult[i]);
+
+    };
+
+
+      });
+}
+ jax();
+});
 
 }
-    });
-
-};
 
 
-
-};
