@@ -47,16 +47,17 @@ url += '?' + $.param({
     	var searchResult = response;
     	console.log(searchResult)
 
-for (i=0; i < searchResult.length; i++){
+    for (i=0; i < searchResult.length; i++){
 
-  var newsDiv = $('<div>');
-  $('newsDiv').append(searchResult[i]);
+      var newsDiv = $('<div>');
+      $('newsDiv').append(searchResult[i]);
 
-}
+    }
+    
     });
 
 };
 
-
+$("#searchGo").on("click", jax());
 
 };
